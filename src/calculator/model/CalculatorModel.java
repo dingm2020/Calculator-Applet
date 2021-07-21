@@ -6,20 +6,27 @@ import javax.swing.*;
 
 public class CalculatorModel implements ActionListener {
 	
+	
+	private JLabel input_hist = new JLabel();
 	private JTextField output = new JTextField(10);
+	private String input_hist_text = "";
 	
 	public CalculatorModel(){
 		JFrame frame = new JFrame("Calculator");
+		JPanel panel = new JPanel();
 		
 		frame.getContentPane().setLayout(null);
 		frame.setSize(250,350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		output.setBounds(25, 15, 150, 20);
-		frame.getContentPane().add(output);
 		
-		JLabel label = new JLabel("Calculator Applet");
-		frame.getContentPane().add(label);
+		input_hist.setText(input_hist_text);
+		input_hist.setBounds(25,15,150,20);
+		//panel.add(input_hist);
+		frame.getContentPane().add(input_hist);
+		
+		output.setBounds(25, 50, 150, 20);
+		frame.getContentPane().add(output);	
 		
 		
 		JButton one = new JButton("1");
@@ -76,6 +83,8 @@ public class CalculatorModel implements ActionListener {
 		// TODO Auto-generated method stub
 		if(e.getActionCommand().equals("1")) {
 			changeTextField("Pressed 1");
+			input_hist_text += "1";
+			input_hist.setText(input_hist_text);
 		}
 		else if(e.getActionCommand().equals("2")) {
 			changeTextField("Pressed 2");
