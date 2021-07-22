@@ -76,7 +76,6 @@ public class CalculatorDelegate implements ActionListener{
 		nine.setBounds(125, 75, 50, 25); // Top right
 		frame.getContentPane().add(nine);
 		
-		
 		frame.setVisible(true);
 	}
 
@@ -92,25 +91,32 @@ public class CalculatorDelegate implements ActionListener{
 			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "2");
 		}
 		else if(e.getActionCommand().equals("3")) {
-			(new CalculatorModel()).changeTextField("Pressed 3", this.output);
+			CalculatorModel.changeTextField("Pressed 3", this.output);
+			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "3");
 		}
 		else if(e.getActionCommand().equals("4")) {
-			(new CalculatorModel()).changeTextField("Pressed 4", this.output);
+			CalculatorModel.changeTextField("Pressed 4", this.output);
+			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "4");
 		}
 		else if(e.getActionCommand().equals("5")) {
-			(new CalculatorModel()).changeTextField("Pressed 5", this.output);
+			CalculatorModel.changeTextField("Pressed 5", this.output);
+			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "5");
 		}
 		else if(e.getActionCommand().equals("6")) {
-			(new CalculatorModel()).changeTextField("Pressed 6", this.output);
+			CalculatorModel.changeTextField("Pressed 6", this.output);
+			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "6");
 		}
 		else if(e.getActionCommand().equals("7")) {
-			(new CalculatorModel()).changeTextField("Pressed 7", this.output);
+			CalculatorModel.changeTextField("Pressed 7", this.output);
+			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "7");
 		}
 		else if(e.getActionCommand().equals("8")) {
-			(new CalculatorModel()).changeTextField("Pressed 8", this.output);
+			CalculatorModel.changeTextField("Pressed 8", this.output);
+			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "8");
 		}
 		else if(e.getActionCommand().equals("9")) {
-			(new CalculatorModel()).changeTextField("Pressed 9", this.output);
+			CalculatorModel.changeTextField("Pressed 9", this.output);
+			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "9");
 		}
 	}
 	
