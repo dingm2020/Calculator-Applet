@@ -1,7 +1,5 @@
 package calculator.ui_delegate;
 
-import java.awt.event.ActionEvent;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -10,19 +8,20 @@ import calculator.model.CalculatorModel;
 
 public class CalculatorDelegate implements ActionListener{
 	
-	
 	private JLabel input_hist = new JLabel(); 
 	private JTextField output = new JTextField(10);
 	private String input_hist_text = "";
 	
+	//private CalculatorModel calcModel;
+	
 	public CalculatorDelegate(){
 		JFrame frame = new JFrame("Calculator");
 		JPanel panel = new JPanel();
+		//calcModel = new CalculatorModel();
 		
 		frame.getContentPane().setLayout(null);
 		frame.setSize(250,350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		
 		input_hist.setText(input_hist_text);
 		input_hist.setBounds(25,15,150,20);
@@ -31,7 +30,6 @@ public class CalculatorDelegate implements ActionListener{
 		
 		output.setBounds(25, 50, 150, 20);
 		frame.getContentPane().add(output);	
-		
 		
 		JButton one = new JButton("1");
 		one.addActionListener(this);
@@ -86,44 +84,40 @@ public class CalculatorDelegate implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getActionCommand().equals("1")) {
-			changeTextField("Pressed 1");
-			input_hist_text += "1";
-			input_hist.setText(input_hist_text);
+			CalculatorModel.changeTextField("Pressed 1", this.output);
+			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "1");
 		}
 		else if(e.getActionCommand().equals("2")) {
-			changeTextField("Pressed 2");
+			CalculatorModel.changeTextField("Pressed 2", this.output);
+			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "2");
 		}
 		else if(e.getActionCommand().equals("3")) {
-			changeTextField("Pressed 3");
+			(new CalculatorModel()).changeTextField("Pressed 3", this.output);
 		}
 		else if(e.getActionCommand().equals("4")) {
-			changeTextField("Pressed 4");
+			(new CalculatorModel()).changeTextField("Pressed 4", this.output);
 		}
 		else if(e.getActionCommand().equals("5")) {
-			changeTextField("Pressed 5");
+			(new CalculatorModel()).changeTextField("Pressed 5", this.output);
 		}
 		else if(e.getActionCommand().equals("6")) {
-			changeTextField("Pressed 6");
+			(new CalculatorModel()).changeTextField("Pressed 6", this.output);
 		}
 		else if(e.getActionCommand().equals("7")) {
-			changeTextField("Pressed 7");
+			(new CalculatorModel()).changeTextField("Pressed 7", this.output);
 		}
 		else if(e.getActionCommand().equals("8")) {
-			changeTextField("Pressed 8");
+			(new CalculatorModel()).changeTextField("Pressed 8", this.output);
 		}
 		else if(e.getActionCommand().equals("9")) {
-			changeTextField("Pressed 9");
+			(new CalculatorModel()).changeTextField("Pressed 9", this.output);
 		}
-	}
-	
-	public void changeTextField(String s) {
-		this.output.setText(s);
 	}
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable(){
 			public void run() {
-				new CalculatorModel();
+				new CalculatorDelegate();
 			}
 		});
 	}
