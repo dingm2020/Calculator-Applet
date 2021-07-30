@@ -31,6 +31,12 @@ public class CalculatorDelegate implements ActionListener{
 		output.setBounds(25, 50, 150, 20);
 		frame.getContentPane().add(output);	
 		
+		
+		JButton clear = new JButton("Clear"); // Below numbers, right side
+		clear.addActionListener(this);
+		clear.setBounds(125, 225, 50, 40);
+		frame.getContentPane().add(clear);
+		
 		JButton one = new JButton("1");
 		one.addActionListener(this);
 		one.setBounds(25, 175, 50, 25);	// Bottom left
@@ -117,6 +123,10 @@ public class CalculatorDelegate implements ActionListener{
 		else if(e.getActionCommand().equals("9")) {
 			CalculatorModel.changeTextField("Pressed 9", this.output);
 			input_hist_text = CalculatorModel.changeInputHistory(input_hist_text, input_hist, "9");
+		}
+		else if(e.getActionCommand().equals("Clear")) {
+			CalculatorModel.clearInputHistory(input_hist, input_hist_text);
+			CalculatorModel.clearTextField(output);
 		}
 	}
 	

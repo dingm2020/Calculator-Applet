@@ -14,4 +14,12 @@ public class CalculatorModel {
 		return s;
 	}
 	
+	public static void clearTextField(JTextField jft) {
+		jft.setText("");
+	}
+	
+	public static void clearInputHistory(JLabel label, String input) {
+		label.setText("");
+	}
+	
 }
