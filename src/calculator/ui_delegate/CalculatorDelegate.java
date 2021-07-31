@@ -11,8 +11,8 @@ public class CalculatorDelegate implements ActionListener{
 	private JLabel input_hist = new JLabel(); 
 	private JTextField output = new JTextField(10);
 	private String input_hist_text = "";
-	
-	//private CalculatorModel calcModel;
+	private int sum = 0;
+
 	
 	public CalculatorDelegate(){
 		JFrame frame = new JFrame("Calculator");
@@ -25,7 +25,6 @@ public class CalculatorDelegate implements ActionListener{
 		
 		input_hist.setText(input_hist_text);
 		input_hist.setBounds(25,15,150,20);
-		//panel.add(input_hist);
 		frame.getContentPane().add(input_hist);
 		
 		output.setBounds(25, 50, 150, 20);
@@ -82,6 +81,11 @@ public class CalculatorDelegate implements ActionListener{
 		nine.setBounds(125, 75, 50, 25); // Top right
 		frame.getContentPane().add(nine);
 		
+		JButton add = new JButton ("+");
+		add.addActionListener(this);
+		add.setBounds(180, 175, 40, 25);
+		frame.getContentPane().add(add);
+		
 		frame.setVisible(true);
 	}
 
@@ -137,5 +141,4 @@ public class CalculatorDelegate implements ActionListener{
 			}
 		});
 	}
-
 }
